@@ -19,22 +19,26 @@ public class MarsRover {
         char[] split = command.toCharArray();
 
         for (char instruction : split) {
-            if(direction.equals("N")) {
-                direction = "E";
-                continue;
-            }
-            if(direction.equals("E")) {
-                direction = "S";
-                continue;
-            }
-            if(direction.equals("S")) {
-                direction = "W";
-                continue;
-            }
-            if(direction.equals("W")) {
-                direction = "N";
-                continue;
-            }
+            rotateRight();
+        }
+    }
+
+    private void rotateRight() {
+        if(direction.equals(Compass.NORTH.getValue())) {
+            direction = Compass.EAST.getValue();
+            return;
+        }
+        if(direction.equals(Compass.EAST.getValue())) {
+            direction = Compass.SOUTH.getValue();
+            return;
+        }
+        if(direction.equals(Compass.SOUTH.getValue())) {
+            direction = Compass.WEST.getValue();
+            return;
+        }
+        if(direction.equals(Compass.WEST.getValue())) {
+            direction = Compass.NORTH.getValue();
+            return;
         }
     }
 }
