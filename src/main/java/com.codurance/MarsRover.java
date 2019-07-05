@@ -19,7 +19,10 @@ public class MarsRover {
         char[] split = command.toCharArray();
 
         for (char instruction : split) {
-            rotateRight();
+            if (instruction == 'R')
+                rotateRight();
+            if (instruction == 'L')
+                direction = Compass.WEST.getValue();
         }
     }
 
