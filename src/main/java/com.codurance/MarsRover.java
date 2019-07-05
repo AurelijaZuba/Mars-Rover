@@ -10,6 +10,6 @@ public class MarsRover {
     }
 
     public String excecute(String command) {
-        return "0, 5, " + direction;
+        return gridCoordinates[0] + ", " + gridCoordinates[1] + ", " + direction;
     }
 }
