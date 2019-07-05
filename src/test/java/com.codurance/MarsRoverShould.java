@@ -65,7 +65,8 @@ public class MarsRoverShould {
     @CsvSource({
             "R, '0, 0, E'",
             "RR, '0, 0, S'",
-            "RRR, '0, 0, W'"
+            "RRR, '0, 0, W'",
+            "RRRR, '0, 0, N'"
     })
     void handle_commands(String command, String expectedPosition) {
         final int[] gridCoordinates = {0, 0};
