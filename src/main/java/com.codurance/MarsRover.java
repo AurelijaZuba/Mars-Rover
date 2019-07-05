@@ -18,13 +18,23 @@ public class MarsRover {
     private void handleInstructions(String command) {
         char[] split = command.toCharArray();
 
-        if (split.length == 1)
-            direction = "E";
-
-        if (split.length == 2)
-            direction = "S";
-
-        if (split.length == 3)
-            direction = "W";
+        for (char instruction : split) {
+            if(direction.equals("N")) {
+                direction = "E";
+                continue;
+            }
+            if(direction.equals("E")) {
+                direction = "S";
+                continue;
+            }
+            if(direction.equals("S")) {
+                direction = "W";
+                continue;
+            }
+            if(direction.equals("W")) {
+                direction = "N";
+                continue;
+            }
+        }
     }
 }
