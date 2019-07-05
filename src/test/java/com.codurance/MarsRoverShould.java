@@ -64,7 +64,8 @@ public class MarsRoverShould {
     @ParameterizedTest
     @CsvSource({
             "R, '0, 0, E'",
-            "RR, '0, 0, S'"
+            "RR, '0, 0, S'",
+            "RRR, '0, 0, W'"
     })
     void handle_commands(String command, String expectedPosition) {
         final int[] gridCoordinates = {0, 0};

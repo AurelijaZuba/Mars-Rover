@@ -10,12 +10,20 @@ public class MarsRover {
     }
 
     public String execute(String command) {
+        handleInstructions(command);
+
+        return gridCoordinates[0] + ", " + gridCoordinates[1] + ", " + direction;
+    }
+
+    private void handleInstructions(String command) {
+        if(command.equals("RRR"))
+            direction =  "W";
+
         if(command.equals("RR"))
             direction =  "S";
 
         if(command.equals("R"))
            direction = "E";
-
-        return gridCoordinates[0] + ", " + gridCoordinates[1] + ", " + direction;
     }
+
 }
