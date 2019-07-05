@@ -2,7 +2,7 @@ package com.codurance;
 
 public class MarsRover {
     private final int[] gridCoordinates;
-    private final String direction;
+    private String direction;
 
     public MarsRover(int[] gridCoordinates, String direction) {
         this.gridCoordinates = gridCoordinates;
@@ -10,8 +10,11 @@ public class MarsRover {
     }
 
     public String execute(String command) {
+        if(command.equals("RR"))
+            direction =  "S";
+
         if(command.equals("R"))
-            return gridCoordinates[0] + ", " + gridCoordinates[1] + ", " + "E";
+           direction = "E";
 
         return gridCoordinates[0] + ", " + gridCoordinates[1] + ", " + direction;
     }

@@ -1,6 +1,8 @@
 package com.codurance;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -9,7 +11,7 @@ public class MarsRoverShould {
 
     @Test
     void check_initial_rover_position() {
-        int[] gridCoordinates = new int[] {0 , 5};
+        int[] gridCoordinates = new int[]{0, 5};
         String direction = "E";
         String command = "";
         String expected = "0, 5, E";
@@ -22,7 +24,7 @@ public class MarsRoverShould {
 
     @Test
     void check_initial_rover_direction() {
-        int[] gridCoordinates = new int[] {0 , 5};
+        int[] gridCoordinates = new int[]{0, 5};
         String direction = "N";
         String command = "";
         String expected = "0, 5, N";
@@ -35,7 +37,7 @@ public class MarsRoverShould {
 
     @Test
     void check_initial_rover_Y_coordinate() {
-        int[] gridCoordinates = new int[] {0 , 1};
+        int[] gridCoordinates = new int[]{0, 1};
         String direction = "N";
         String command = "";
         String expected = "0, 1, N";
@@ -48,7 +50,7 @@ public class MarsRoverShould {
 
     @Test
     void check_new_rover_X_coordinate() {
-        int[] gridCoordinates = new int[] {1 , 1};
+        int[] gridCoordinates = new int[]{1, 1};
         String direction = "N";
         String command = "";
         String expected = "1, 1, N";
@@ -59,15 +61,18 @@ public class MarsRoverShould {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Test
-    void rotate_once_right() {
+    @ParameterizedTest
+    @CsvSource({
+            "R, '0, 0, E'",
+            "RR, '0, 0, S'"
+    })
+    void handle_commands(String command, String expectedPosition) {
         final int[] gridCoordinates = {0, 0};
         final String direction = "N";
         MarsRover marsRover = new MarsRover(gridCoordinates, direction);
-        String expected =  "0, 0, E";
 
-        String actual = marsRover.execute("R");
+        String actual = marsRover.execute(command);
 
-        assertThat(actual).isEqualTo(expected);
+        assertThat(actual).isEqualTo(expectedPosition);
     }
 }
