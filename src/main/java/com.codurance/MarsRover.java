@@ -16,14 +16,15 @@ public class MarsRover {
     }
 
     private void handleInstructions(String command) {
-        if(command.equals("RRR"))
-            direction =  "W";
+        char[] split = command.toCharArray();
 
-        if(command.equals("RR"))
-            direction =  "S";
+        if (split.length == 1)
+            direction = "E";
 
-        if(command.equals("R"))
-           direction = "E";
+        if (split.length == 2)
+            direction = "S";
+
+        if (split.length == 3)
+            direction = "W";
     }
-
 }
