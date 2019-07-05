@@ -15,7 +15,7 @@ public class MarsRoverShould {
         String expected = "0, 5, E";
 
         MarsRover marsRover = new MarsRover(gridCoordinates, direction);
-        String actual = marsRover.excecute(command);
+        String actual = marsRover.execute(command);
 
         assertThat(actual).isEqualTo(expected);
     }
@@ -28,7 +28,7 @@ public class MarsRoverShould {
         String expected = "0, 5, N";
 
         MarsRover marsRover = new MarsRover(gridCoordinates, direction);
-        String actual = marsRover.excecute(command);
+        String actual = marsRover.execute(command);
 
         assertThat(actual).isEqualTo(expected);
     }
@@ -41,7 +41,7 @@ public class MarsRoverShould {
         String expected = "0, 1, N";
 
         MarsRover marsRover = new MarsRover(gridCoordinates, direction);
-        String actual = marsRover.excecute(command);
+        String actual = marsRover.execute(command);
 
         assertThat(actual).isEqualTo(expected);
     }
@@ -54,7 +54,19 @@ public class MarsRoverShould {
         String expected = "1, 1, N";
 
         MarsRover marsRover = new MarsRover(gridCoordinates, direction);
-        String actual = marsRover.excecute(command);
+        String actual = marsRover.execute(command);
+
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    void rotate_once_right() {
+        final int[] gridCoordinates = {0, 0};
+        final String direction = "N";
+        MarsRover marsRover = new MarsRover(gridCoordinates, direction);
+        String expected =  "0, 0, E";
+
+        String actual = marsRover.execute("R");
 
         assertThat(actual).isEqualTo(expected);
     }

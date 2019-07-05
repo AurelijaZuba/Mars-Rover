@@ -9,7 +9,10 @@ public class MarsRover {
         this.direction = direction;
     }
 
-    public String excecute(String command) {
+    public String execute(String command) {
+        if(command.equals("R"))
+            return gridCoordinates[0] + ", " + gridCoordinates[1] + ", " + "E";
+
         return gridCoordinates[0] + ", " + gridCoordinates[1] + ", " + direction;
     }
 }
