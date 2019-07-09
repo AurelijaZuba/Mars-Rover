@@ -52,6 +52,10 @@ public class State {
     }
 
     public void moveForward() {
-        gridCoordinates[1] += 1;
+        if (gridCoordinates[1] < 9) {
+            gridCoordinates[1] += 1;
+            return;
+        }
+        gridCoordinates[1] = 0;
     }
 }
