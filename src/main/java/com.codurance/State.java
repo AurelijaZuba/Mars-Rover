@@ -52,6 +52,6 @@ public class State {
     }
 
     public void moveForward() {
-        gridCoordinates[1] = 1;
+        gridCoordinates[1] += 1;
     }
 }
