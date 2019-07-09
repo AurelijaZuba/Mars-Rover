@@ -21,8 +21,24 @@ public class MarsRover {
         for (char instruction : split) {
             if (instruction == 'R')
                 rotateRight();
-            if (instruction == 'L')
-                direction = Compass.WEST;
+            if (instruction == 'L') {
+                if(direction.equals(Compass.NORTH)) {
+                    direction = Compass.WEST;
+                    continue;
+                }
+                if(direction.equals(Compass.WEST)) {
+                    direction = Compass.SOUTH;
+                    continue;
+                }
+                if(direction.equals(Compass.SOUTH)) {
+                    direction = Compass.EAST;
+                    continue;
+                }
+                if(direction.equals(Compass.EAST)) {
+                    direction = Compass.NORTH;
+                    continue;
+                }
+            }
         }
     }
 
