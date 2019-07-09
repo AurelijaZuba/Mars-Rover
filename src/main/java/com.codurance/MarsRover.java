@@ -27,5 +27,7 @@ public class MarsRover {
         if (instruction == 'L') {
             state.rotateLeft();
         }
+        if(instruction == 'M')
+            state.moveForward();
     }
 }

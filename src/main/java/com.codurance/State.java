@@ -50,4 +50,8 @@ public class State {
             this.direction = Compass.NORTH;
         }
     }
+
+    public void moveForward() {
+        gridCoordinates[1] = 1;
+    }
 }

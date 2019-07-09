@@ -71,7 +71,8 @@ public class MarsRoverShould {
             "L, '0, 0, W'",
             "LL, '0, 0, S'",
             "LLL, '0, 0, E'",
-            "LLLL, '0, 0, N'"
+            "LLLL, '0, 0, N'",
+            "M, '0, 1, N'"
     })
     void handle_commands(String command, String expectedPosition) {
         final int[] gridCoordinates = {0, 0};
