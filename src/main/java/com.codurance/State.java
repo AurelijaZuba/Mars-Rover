@@ -52,6 +52,10 @@ public class State {
     }
 
     public void moveForward() {
+        if(direction.equals(Compass.EAST))
+            gridCoordinates[0] = 1;
+
+        if(direction.equals(Compass.NORTH))
         if (gridCoordinates[1] < 9) {
             gridCoordinates[1] += 1;
             return;

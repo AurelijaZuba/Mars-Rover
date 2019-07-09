@@ -24,10 +24,10 @@ public class MarsRover {
     private void executeCommand(char instruction) {
         if (instruction == 'R')
             state.rotateRight();
-        if (instruction == 'L') {
+        if (instruction == 'L')
             state.rotateLeft();
-        }
         if(instruction == 'M')
             state.moveForward();
+
     }
 }
