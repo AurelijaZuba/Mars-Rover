@@ -67,5 +67,20 @@ public class State {
             }
             gridCoordinates[1] = 0;
         }
+
+        if (direction.equals(Compass.WEST)) {
+            if (gridCoordinates[0] > 0) {
+                gridCoordinates[0] -= 1;
+                return;
+            }
+            gridCoordinates[0] = 9;
+        }
+        if (direction.equals(Compass.SOUTH)) {
+            if (gridCoordinates[1] > 0) {
+                gridCoordinates[1] -= 1;
+                return;
+            }
+            gridCoordinates[1] = 9;
+        }
     }
 }
