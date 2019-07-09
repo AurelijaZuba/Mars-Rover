@@ -1,18 +1,18 @@
 package com.codurance;
 
 public class State {
-    private final int[] gridCoordinates;
+    final Coordinates coordinates = new Coordinates();
 
     private Compass direction;
 
     public State(int[] gridCoordinates, Compass direction) {
-        this.gridCoordinates = gridCoordinates;
+        this.coordinates.setGridCoordinates(gridCoordinates);
         this.direction = direction;
     }
 
     @Override
     public String toString() {
-        return gridCoordinates[0] + ", " + gridCoordinates[1] + ", " + direction.getValue();
+        return coordinates.getGridCoordinates()[0] + ", " + coordinates.getGridCoordinates()[1] + ", " + direction.getValue();
     }
 
     void rotateLeft() {
@@ -53,34 +53,18 @@ public class State {
 
     public void moveForward() {
         if (direction.equals(Compass.EAST)) {
-            if (gridCoordinates[0] < 9) {
-                gridCoordinates[0] += 1;
-                return;
-            }
-            gridCoordinates[0] = 0;
+            coordinates.moveEast();
         }
 
         if (direction.equals(Compass.NORTH)) {
-            if (gridCoordinates[1] < 9) {
-                gridCoordinates[1] += 1;
-                return;
-            }
-            gridCoordinates[1] = 0;
+            coordinates.moveNorth();
         }
 
         if (direction.equals(Compass.WEST)) {
-            if (gridCoordinates[0] > 0) {
-                gridCoordinates[0] -= 1;
-                return;
-            }
-            gridCoordinates[0] = 9;
+            coordinates.moveWest();
         }
         if (direction.equals(Compass.SOUTH)) {
-            if (gridCoordinates[1] > 0) {
-                gridCoordinates[1] -= 1;
-                return;
-            }
-            gridCoordinates[1] = 9;
+            coordinates.moveSouth();
         }
     }
 }
